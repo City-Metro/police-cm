@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Report a Safety Concern | City Metro Transit Police</title>
+<meta name="description" content="Report a non-emergency safety concern to City Metro Transit Police.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="emergency-ribbon">In an emergency, always call <strong>911</strong> first. This form is for non-emergency reporting only.</div>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <img src="logo.png" alt="City Metro Transit Police logo" class="brand-mark"><span class="brand-text"><span class="line1">City Metro</span><br><span class="line2">Transit Police</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="report.html" class="current">Report a Concern</a>
+      <a href="locations.html">Locations</a>
+      <a href="divisions.html">Divisions</a>
+      <a href="flx-police.html">FLX Police</a>
+      <a href="careers.html">Careers</a>
+    </nav>
+  </div>
+</header>
+
+<section class="loc-hero" style="padding-bottom:60px;">
+  <div class="container">
+    <span class="eyebrow">Non-emergency reporting</span>
+    <h1 style="color:var(--white);font-size:clamp(2rem,4vw,3rem);margin-top:10px;">Report a Safety Concern</h1>
+    <p style="max-width:640px;color:#C7D0DA;">Tell us what you saw. Your report is reviewed by CMTP staff and helps direct officers to where they're needed most. For anything happening right now that involves danger to someone, call 911 instead.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="emergency-note" style="max-width:760px;margin:0 auto 34px;">
+      <strong>This is not for emergencies.</strong> If someone is in immediate danger, there is a fire, a medical emergency, or a crime is in progress, call 911. Use this form for concerns like unsafe conditions, suspicious activity after the fact, fare evasion patterns, lost property, or general feedback for CMTP.
+    </div>
+
+    <form class="report-form" id="report-form">
+      <div class="form-row">
+        <label for="category">Type of concern <span class="required-star">*</span></label>
+        <select id="category" name="category" required>
+          <option value="">Select a category</option>
+          <option>Suspicious activity</option>
+          <option>Harassment or threatening behavior</option>
+          <option>Unsafe station or vehicle condition</option>
+          <option>Fare evasion pattern</option>
+          <option>Lost or found property</option>
+          <option>Officer conduct feedback</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="location">Location <span class="required-star">*</span></label>
+        <select id="location" name="location" required>
+          <option value="">Select the closest location</option>
+          <option>Union Station Transit Police Station</option>
+          <option>City Metro Transit Police Headquarters — Downtown Lego City Station</option>
+          <option>Airport Metro Transit Center — Transit/FLX Police Kiosk</option>
+          <option>Santa Mooica State Recreation Area Transit Police Kiosk</option>
+          <option>Downtown Santa Mooica Station Police Station</option>
+          <option>Other / aboard a vehicle</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="occurred">Date &amp; time it occurred
+          <span class="hint">Leave blank if it's ongoing or you're not sure.</span>
+        </label>
+        <input type="datetime-local" id="occurred" name="occurred">
+      </div>
+
+      <div class="form-row">
+        <label for="description">Description <span class="required-star">*</span></label>
+        <textarea id="description" name="description" required placeholder="What did you see or experience? Include as much detail as you can — location within the station, description of people involved, train/bus line, etc."></textarea>
+      </div>
+
+      <div class="rail-divider"><span class="dot"></span><span class="line"></span></div>
+
+      <div class="form-row">
+        <label>
+          <input type="checkbox" id="anonymous" name="anonymous" style="width:auto;display:inline-block;margin-right:8px;">
+          Submit this report anonymously
+        </label>
+      </div>
+
+      <div class="form-grid-2">
+        <div class="form-row">
+          <label for="reporter_name">Your name</label>
+          <input type="text" id="reporter_name" name="reporter_name" placeholder="Jane Rider">
+        </div>
+        <div class="form-row">
+          <label for="reporter_phone">Phone</label>
+          <input type="tel" id="reporter_phone" name="reporter_phone" placeholder="(555) 010-0100">
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="reporter_email">Email</label>
+        <input type="email" id="reporter_email" name="reporter_email" placeholder="you@example.com">
+      </div>
+
+      <button type="submit" class="btn btn-amber btn-block">Review &amp; Send to CMTP</button>
+    </form>
+
+  </div>
+</section>
+
+<!-- Popup modal -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" id="modal-close-btn" aria-label="Close">&times;</button>
+    <span class="eyebrow">Ready to send</span>
+    <h3 id="modal-title">Send this report to CMTP</h3>
+    <p style="margin-bottom:16px;">This will open your email app with the message below, addressed to <strong>police@citymetro.xyz</strong>. Review it, then hit send from your email app.</p>
+    <div class="modal-summary" id="modal-summary"></div>
+    <div class="modal-actions">
+      <a href="mailto:police@citymetro.xyz" id="modal-send-btn" class="btn btn-amber">Open Email to Send</a>
+      <button type="button" class="btn btn-outline-navy" id="modal-close-btn-2" onclick="document.getElementById('modal-overlay').classList.remove('open')">Keep Editing</button>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="logo.png" alt="City Metro Transit Police logo" class="brand-mark"><strong style="color:var(--white);">City Metro Transit Police</strong>
+        </div>
+        <p style="max-width:320px;font-size:0.9rem;">Sworn law enforcement for Lego City County's rail and bus transit system. Non-emergency reports: police@citymetro.xyz</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="divisions.html">Divisions</a></li>
+          <li><a href="flx-police.html">FLX Police</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Safety</h4>
+        <ul>
+          <li><a href="report.html">Report a Concern</a></li>
+          <li><a href="tel:911">Emergency: 911</a></li>
+          <li><a href="mailto:police@citymetro.xyz">police@citymetro.xyz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 City Metro Transit Police, Lego City County</span>
+      <span>Non-emergency contact only — always dial 911 for emergencies</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
